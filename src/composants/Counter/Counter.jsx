@@ -1,12 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Counter.scss';
 
 export const Counter = ({name,value, onIncrement }) => {
-  const [count, setCount] = useState(0);
-
-  // const handleIncrement = () => {
-  //   setCount((prevCount) => prevCount + 1);
-  // };
 
   return (
     <div className="Counter" onClick={onIncrement}>      

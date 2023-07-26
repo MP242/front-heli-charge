@@ -10,7 +10,7 @@ export const MyCounters = () => {
 
   useEffect(() => {
     getAllSessionCounter(user.userId);
-  }, []);
+  }, [user.userId]);
 
   return (
     <div className='MyCounters'>

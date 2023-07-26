@@ -15,7 +15,7 @@ export const Profile = () => {
       redirect: 'follow',
     };
 
-    const url = `https://server-heli-charge-706f4d31d3fe.herokuapp.com//users/${id}`;
+    const url = `https://server-heli-charge-706f4d31d3fe.herokuapp.com/users/${id}`;
     console.log(url);
 
     fetch(url, requestOptions)

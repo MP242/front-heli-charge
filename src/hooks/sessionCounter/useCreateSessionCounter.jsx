@@ -7,7 +7,7 @@ export function useCreateSessionCounter() {
   function createSessionCounter(userID, counterSession) {
     setLoading(true);
   
-    return fetch('https://server-heli-charge-706f4d31d3fe.herokuapp.com//counters', {
+    return fetch('https://server-heli-charge-706f4d31d3fe.herokuapp.com/counters', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

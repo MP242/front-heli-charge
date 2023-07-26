@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { set, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import './Login.scss';
 
 export const Login = ({ setIsLoggedIn }) => {
@@ -9,12 +9,11 @@ export const Login = ({ setIsLoggedIn }) => {
     handleSubmit,
     formState: { errors, isValid },
   } = useForm({ mode: 'onBlur', criteriaMode: 'all' });
-  const [loggedIn, setLoggedIn] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(`Email: ${data.email}, Password: ${data.password}`);
+    // console.log(`Email: ${data.email}, Password: ${data.password}`);
     var myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
 
@@ -30,14 +29,14 @@ export const Login = ({ setIsLoggedIn }) => {
       redirect: 'follow',
     };
 
-    fetch('https://server-heli-charge-706f4d31d3fe.herokuapp.com//users/login', requestOptions)
+    fetch('https://server-heli-charge-706f4d31d3fe.herokuapp.com/users/login', requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.error) {
-          console.log(result.error);
+          // console.log(result.error);
           setError('Email ou mot de passe incorrect !');
         } else {
-          console.log(result);
+          // console.log(result);
           localStorage.setItem('user', JSON.stringify(result));
           setIsLoggedIn(true);
           navigate('/');
@@ -106,7 +105,7 @@ export const Login = ({ setIsLoggedIn }) => {
               <Link to="/register">Je n'ai pas de compte</Link>
             </div>
           </form>
-          {loggedIn && <p>Success !</p>}
+          {/* {loggedIn && <p>Success !</p>} */}
         </section>
       </div>
     </>

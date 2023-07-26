@@ -4,16 +4,13 @@ import { Counter } from '../../composants/Counter/Counter';
 import { useCreateSessionCounter } from '../../hooks/sessionCounter/useCreateSessionCounter';
 import './Home.scss';
 
-export const Home =()=> {
+export const Home = () => {
   const [sessionCounters, setSessionCounters] = useState(false);
   const [counterNames, setCounterNames] = useState({});
-  const { loading, newSessionCounter, createSessionCounter } =
-    useCreateSessionCounter();
+  const { createSessionCounter } = useCreateSessionCounter();
   const user = JSON.parse(localStorage.getItem('user'));
-  // console.log(user);
 
   const handleSession = () => {
-    // console.log('counterNames', counterNames);
     setSessionCounters(!sessionCounters);
   };
   const saveSession = async () => {

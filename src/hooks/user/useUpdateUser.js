@@ -14,7 +14,7 @@ export function useUpdateUser() {
       body: JSON.stringify(data),
     };
 
-    const url = `https://server-heli-charge-706f4d31d3fe.herokuapp.com//users/${id}`;
+    const url = `https://server-heli-charge-706f4d31d3fe.herokuapp.com/users/${id}`;
 
     fetch(url, requestOptions)
       .then((response) => response.json())

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import hamburger from '../../assets/hamburger.svg';
 import account from '../../assets/account.svg';
 import logout from '../../assets/logout.svg';

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 
 export const useGetSessionCounter = () => {
     const [loading, setLoading] = useState(false);
@@ -7,7 +7,7 @@ export const useGetSessionCounter = () => {
     function getAllSessionCounter(userID) {
         setLoading(true);
       
-        return fetch(`https://server-heli-charge-706f4d31d3fe.herokuapp.com//counters/user/${userID}`, {
+        return fetch(`https://server-heli-charge-706f4d31d3fe.herokuapp.com/counters/user/${userID}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

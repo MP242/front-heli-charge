@@ -14,7 +14,10 @@ export const Users = () => {
       redirect: 'follow',
     };
 
-    fetch('https://server-heli-charge-706f4d31d3fe.herokuapp.com//users', requestOptions)
+    fetch(
+      'https://server-heli-charge-706f4d31d3fe.herokuapp.com/users',
+      requestOptions
+    )
       .then((response) => response.json())
       .then((data) => setUsers(data))
       .catch((error) => console.log('error', error));
