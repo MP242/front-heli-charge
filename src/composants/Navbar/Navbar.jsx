@@ -19,7 +19,7 @@ export const Navbar = ({isLoggedIn, setIsLoggedIn})=> {
   return (
     <nav className="Navbar">
       <Link to="/">
-        <img src={logo} alt="logo" className="Navbar__logo" />
+        <img src={logo} alt="logo" className="Navbar__logo" />        
       </Link>
       {user && <HamburgerMenu handleLogout={handleLogout} />}
     </nav>

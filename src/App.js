@@ -8,6 +8,8 @@ import { Navbar } from './composants/Navbar/Navbar';
 import { Login } from './screens/Login/Login';
 import { Register } from './screens/Register/Register';
 import { MyCounters } from './screens/MyCounters/MyCounters';
+// import { MobileNavbar } from './composants/MobileNavbar/MobileNavbar';
+import { MobileNavbar } from './composants/MobileNavbar/MobileNavbar'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -16,7 +18,8 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />      
+        <MobileNavbar />      
       <Routes>
         <Route
           path="/"

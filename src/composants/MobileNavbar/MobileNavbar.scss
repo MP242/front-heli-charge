@@ -1,0 +1,18 @@
+.MobileNavbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  // background-color: red;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  // height: 40px;
+  padding: 1em;
+  border-top: 1px solid #dedddd;
+  height: 70px;
+
+  @media (min-width: 480px) {
+    display: none;
+  }
+}
