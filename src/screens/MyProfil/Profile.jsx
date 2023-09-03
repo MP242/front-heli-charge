@@ -8,6 +8,7 @@ export const Profile = () => {
   console.log(id);
   const [user, setUser] = useState([]);
   const { loading, error, updateUser } = useUpdateUser();
+  const BASE_URL = process.env.REACT_APP_API_URL
 
   useEffect(() => {
     var requestOptions = {
@@ -15,7 +16,7 @@ export const Profile = () => {
       redirect: 'follow',
     };
 
-    const url = `https://server-heli-charge-706f4d31d3fe.herokuapp.com/users/${id}`;
+    const url = BASE_URL+`/users/${id}`;
     console.log(url);
 
     fetch(url, requestOptions)

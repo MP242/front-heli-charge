@@ -3,6 +3,7 @@ import { useState } from 'react';
 export function useUpdateUser() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const BASE_URL = process.env.REACT_APP_API_URL;
 
   function updateUser(id, data) {
     setLoading(true);
@@ -14,7 +15,7 @@ export function useUpdateUser() {
       body: JSON.stringify(data),
     };
 
-    const url = `https://server-heli-charge-706f4d31d3fe.herokuapp.com/users/${id}`;
+    const url = BASE_URL +`/users/${id}`;
 
     fetch(url, requestOptions)
       .then((response) => response.json())

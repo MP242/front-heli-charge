@@ -3,11 +3,12 @@ import { useState } from 'react';
 export function useDeleteUser() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const BASE_URL = process.env.REACT_APP_API_URL;
 
   function deleteUser(userId) {
     setLoading(true);
     fetch(
-      `https://server-heli-charge-706f4d31d3fe.herokuapp.com//users/${userId}`,
+      BASE_URL+`/users/${userId}`,
       {
         method: 'DELETE',
       }

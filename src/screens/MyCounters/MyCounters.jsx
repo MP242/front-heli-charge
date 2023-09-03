@@ -6,6 +6,7 @@ export const MyCounters = () => {
   const user = JSON.parse(localStorage.getItem('user'));
   const [AllSessionCounter, setAllSessionCounter] = useState([]);
   const [loading, setLoading] = useState(false);
+  const BASE_URL= process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     console.log("useEffect !!!")
@@ -18,7 +19,7 @@ export const MyCounters = () => {
     };
 
     fetch(
-      `https://server-heli-charge-706f4d31d3fe.herokuapp.com/counters/user/${user.userId}`,
+      BASE_URL+`/counters/user/${user.userId}`,
       requestOptions
     )
       .then((response) => response.json())

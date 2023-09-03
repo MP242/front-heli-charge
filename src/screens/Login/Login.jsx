@@ -11,6 +11,7 @@ export const Login = ({ setIsLoggedIn }) => {
   } = useForm({ mode: 'onBlur', criteriaMode: 'all' });
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const BASE_URL = process.env.REACT_APP_API_URL;
 
   const onSubmit = (data) => {
     // console.log(`Email: ${data.email}, Password: ${data.password}`);
@@ -29,7 +30,7 @@ export const Login = ({ setIsLoggedIn }) => {
       redirect: 'follow',
     };
 
-    fetch('https://server-heli-charge-706f4d31d3fe.herokuapp.com/users/login', requestOptions)
+    fetch(BASE_URL+'/users/login', requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.error) {

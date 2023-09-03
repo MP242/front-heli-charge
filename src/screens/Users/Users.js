@@ -7,6 +7,7 @@ export const Users = () => {
   const [users, setUsers] = useState([]);
   const { loading, deleteUser } = useDeleteUser();
   const { loading: loadingCreate, newUser, createUser } = useCreateUser();
+  const url = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     var requestOptions = {
@@ -15,7 +16,7 @@ export const Users = () => {
     };
 
     fetch(
-      'https://server-heli-charge-706f4d31d3fe.herokuapp.com/users',
+      url + '/users',
       requestOptions
     )
       .then((response) => response.json())

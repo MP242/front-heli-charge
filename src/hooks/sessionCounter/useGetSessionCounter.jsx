@@ -3,11 +3,12 @@ import {useState} from 'react'
 export const useGetSessionCounter = () => {
     const [loading, setLoading] = useState(false);
     const [AllSessionCounter, setAllSessionCounter] = useState([]);
+    const BASE_URL = process.env.REACT_APP_API_URL;
 
     function getAllSessionCounter(userID) {
         setLoading(true);
       
-        return fetch(`https://server-heli-charge-706f4d31d3fe.herokuapp.com/counters/user/${userID}`, {
+        return fetch(BASE_URL+`/counters/user/${userID}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

@@ -3,11 +3,12 @@ import { useState } from 'react';
 export function useCreateSessionCounter() {
   const [loading, setLoading] = useState(false);
   const [newSessionCounter, setNewSessionCounter] = useState([]);
+  const BASE_URL = process.env.REACT_APP_API_URL;
 
   function createSessionCounter(userID, counterSession) {
     setLoading(true);
   
-    return fetch('https://server-heli-charge-706f4d31d3fe.herokuapp.com/counters', {
+    return fetch(BASE_URL+'/counters', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
