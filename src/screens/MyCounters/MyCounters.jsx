@@ -6,22 +6,19 @@ export const MyCounters = () => {
   const user = JSON.parse(localStorage.getItem('user'));
   const [AllSessionCounter, setAllSessionCounter] = useState([]);
   const [loading, setLoading] = useState(false);
-  const BASE_URL= process.env.REACT_APP_API_URL;
 
   useEffect(() => {
-    console.log("useEffect !!!")
+    console.log('useEffect !!!');
     const user = JSON.parse(localStorage.getItem('user'));
-    console.log("user.userID", user.userId)
+    console.log('user.userID', user.userId);
+    const BASE_URL = process.env.REACT_APP_API_URL;
     setLoading(true);
     const requestOptions = {
       method: 'GET',
       redirect: 'follow',
     };
 
-    fetch(
-      BASE_URL+`/counters/user/${user.userId}`,
-      requestOptions
-    )
+    fetch(BASE_URL + `/counters/user/${user.userId}`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         console.log('Get all Session Counter message:', data);

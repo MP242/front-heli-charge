@@ -8,15 +8,15 @@ export const Profile = () => {
   console.log(id);
   const [user, setUser] = useState([]);
   const { loading, error, updateUser } = useUpdateUser();
-  const BASE_URL = process.env.REACT_APP_API_URL
 
   useEffect(() => {
+    const BASE_URL = process.env.REACT_APP_API_URL;
     var requestOptions = {
       method: 'GET',
       redirect: 'follow',
     };
 
-    const url = BASE_URL+`/users/${id}`;
+    const url = BASE_URL + `/users/${id}`;
     console.log(url);
 
     fetch(url, requestOptions)
@@ -35,24 +35,24 @@ export const Profile = () => {
     updateUser(id, data);
   }
 
-  return (    
-      <div className="profile">
-        <p>Mettre à jour mon profil</p>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Nom</label>
-          <input type="text" name="name" defaultValue={user.name} />
-          <label htmlFor="name">Prénom</label>
-          <input type="text" name="surname" defaultValue={user.surname} />
-          <label htmlFor="email">Email</label>
-          <input type="text" name="email" defaultValue={user.email} />
-          {/* <label htmlFor="admin">Admin</label>
+  return (
+    <div className="profile">
+      <p>Mettre à jour mon profil</p>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="name">Nom</label>
+        <input type="text" name="name" defaultValue={user.name} />
+        <label htmlFor="name">Prénom</label>
+        <input type="text" name="surname" defaultValue={user.surname} />
+        <label htmlFor="email">Email</label>
+        <input type="text" name="email" defaultValue={user.email} />
+        {/* <label htmlFor="admin">Admin</label>
           <input type="text" name="admin" defaultValue={user.admin} /> */}
-          <button type="submit" disabled={loading}>
-            Mettre à jour
-          </button>
-          {loading && <p>Loading...</p>}
-          {error && <p>Error: {error.message}</p>}
-        </form>
-      </div>  
+        <button type="submit" disabled={loading}>
+          Mettre à jour
+        </button>
+        {loading && <p>Loading...</p>}
+        {error && <p>Error: {error.message}</p>}
+      </form>
+    </div>
   );
 };

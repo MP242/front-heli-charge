@@ -7,18 +7,15 @@ export const Users = () => {
   const [users, setUsers] = useState([]);
   const { loading, deleteUser } = useDeleteUser();
   const { loading: loadingCreate, newUser, createUser } = useCreateUser();
-  const url = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
+    const url = process.env.REACT_APP_API_URL;
     var requestOptions = {
       method: 'GET',
       redirect: 'follow',
     };
 
-    fetch(
-      url + '/users',
-      requestOptions
-    )
+    fetch(url + '/users', requestOptions)
       .then((response) => response.json())
       .then((data) => setUsers(data))
       .catch((error) => console.log('error', error));
